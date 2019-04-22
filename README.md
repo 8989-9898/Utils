@@ -11,6 +11,6 @@ MyDefaultComment类继承DefaultCommentGenerator
 
 使用方法
 将项目下载后，使用idea将my_generator报进行install安装到maven仓库中，在需要的项目中添加依赖后
-将mybatis-generator的配置文件修改该节点
+将mybatis-generator的配置文件修改该 commentGenerator 节点
 <commentGenerator type="com.ly.comment.MyComment">
 type为要使用的自定义的类
