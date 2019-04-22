@@ -1,5 +1,7 @@
 package com.gm.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @ProjectName: mybatis
  * @Package: com.gm.service
@@ -9,6 +11,8 @@ package com.gm.service;
  * @Date: 2019-04-22 10:03
  * @Version: 1.0
  */
+@Service
 public class T_GeneratorServer {
+
 
 }
