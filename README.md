@@ -1,0 +1,16 @@
+# Utils
+各种工具类和重写架构类
+该项目为mybatis-generator的测试和重写项目
+包含两个项目
+一、my_generator
+该项目主要是包含两个重写类，重写了mybatis-generator的CommentGenerator接口和继承DefaultCommentGenerator类，将注释进行了自定义的格式规划。
+MyComment类实现CommentGenerator
+MyDefaultComment类继承DefaultCommentGenerator
+二、mybatis_generator_test
+该项目主要是对原生的mybatis-generator进行测试和重写的类进行测试
+
+使用方法
+将项目下载后，使用idea将my_generator报进行install安装到maven仓库中，在需要的项目中添加依赖后
+将mybatis-generator的配置文件修改该节点
+<commentGenerator type="com.ly.comment.MyComment">
+type为要使用的自定义的类
