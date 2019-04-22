@@ -358,7 +358,6 @@ public class MyDefaultComment extends DefaultCommentGenerator {
 
     /**
      * 添加类注释
-     *
      * @param innerClass        类对象
      * @param introspectedTable 数据库表的对象
      * @param markAsDoNotDelete 是否添加警告不能删除该类
@@ -371,11 +370,11 @@ public class MyDefaultComment extends DefaultCommentGenerator {
         StringBuilder sb = new StringBuilder();
         innerClass.addJavaDocLine("/**");
         innerClass.addJavaDocLine(" * @Author: lin");
-        sb.append(" * @Table: ").append(introspectedTable.getFullyQualifiedTable());
-        innerClass.addJavaDocLine(sb.toString());
-        sb.setLength(0);
-        sb.append(" * @Date: ").append(getDateString()).append("\n");
-        sb.append(" * @Description: ").append(introspectedTable.getRemarks());
+        sb.append(" * @Table: ").append(introspectedTable.getFullyQualifiedTable())
+                .append("\n")
+                .append(" * @Date: ").append(getDateString())
+                .append("\n")
+                .append(" * @Description: ").append(introspectedTable.getRemarks());
         innerClass.addJavaDocLine(sb.toString());
         addJavadocTag(innerClass, markAsDoNotDelete);
         innerClass.addJavaDocLine(" */");
