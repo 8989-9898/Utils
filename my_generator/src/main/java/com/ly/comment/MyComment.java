@@ -4,12 +4,11 @@ import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.*;
+import org.mybatis.generator.api.dom.xml.Attribute;
 import org.mybatis.generator.api.dom.xml.TextElement;
 import org.mybatis.generator.api.dom.xml.XmlElement;
-import org.mybatis.generator.config.MergeConstants;
 import org.mybatis.generator.config.PropertyRegistry;
 import org.mybatis.generator.internal.util.StringUtility;
-import sun.reflect.generics.scope.MethodScope;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,23 +82,47 @@ public class MyComment implements CommentGenerator {
         if (suppressAllComments) {
             return;
         }
-        xmlElement.getName();
-        xmlElement.getAttributes().forEach(p -> {
-
-        });
-        xmlElement.addElement(new TextElement("<!--"));
+        String name = xmlElement.getName();
         StringBuilder sb = new StringBuilder();
-        sb.append("  WARNING - ");
+        switch (name) {
+            case "resultMap":
+                sb.append("<!-- 自定义map集合 ");
+                joinStr(xmlElement, sb);
+                break;
+            case "delete":
+            case "insert":
+            case "update":
+            case "select":
+                sb.append("<!-- 对应mapper接口的方法为 ");
+                joinStr(xmlElement, sb);
+                break;
+            default:
+                sb.append("<!-- 未知节点 ");
+                joinStr(xmlElement, sb);
+                break;
+        }
+        sb.append(" -->");
+        System.out.println(sb.toString());
         xmlElement.addElement(new TextElement(sb.toString()));
-        xmlElement.addElement(new TextElement("  "));
+    }
+
+    private void joinStr(XmlElement xmlElement, StringBuilder sb) {
+        xmlElement.getAttributes().forEach(p -> {
+        if ("id".equals(p.getName())) {
+                sb.append(p.getValue());
+            } else if ("parameterType".equals(p.getName())) {
+                sb.append("\n\t\t").append("参数类型为: ").append(p.getValue());
+            } else if ("resultMap".equals(p.getName()) || "resultType".equals(p.getName())) {
+                sb.append("\n\t\t").append("返回类型为: ").append(p.getValue());
+            } else if ("type".equals(p.getName())) {
+                sb.append("\n\t\t").append("类型为: ").append(p.getValue());
+            }
+        });
         String s = getDateString();
         if (s != null) {
-            sb.setLength(0);
             sb.append("  Date :  ");
             sb.append(s);
-            xmlElement.addElement(new TextElement(sb.toString()));
         }
-        xmlElement.addElement(new TextElement("-->"));
     }
 
     /**
@@ -305,7 +328,7 @@ public class MyComment implements CommentGenerator {
             });
         }
         method.addJavaDocLine(" * @Date: " + getDateString());
-        method.addJavaDocLine(" * @Description: " );
+        method.addJavaDocLine(" * @Description: ");
         sb.setLength(0);
         FullyQualifiedJavaType fullyQualifiedJavaType = method.getReturnType();
         if (!"".equals(fullyQualifiedJavaType) && null != fullyQualifiedJavaType) {
@@ -363,7 +386,7 @@ public class MyComment implements CommentGenerator {
                 .append("\n\t")
                 .append(" * @Column: ").append(introspectedColumn.getActualColumnName())
                 .append("\n\t")
-                .append(" * @Param ").append(parameter.getName()+" "+parameter.getType())
+                .append(" * @Param ").append(parameter.getName() + " " + parameter.getType())
                 .append("\n\t")
                 .append(" * @ Description: ").append(introspectedColumn.getRemarks());
         method.addJavaDocLine(sb.toString());
