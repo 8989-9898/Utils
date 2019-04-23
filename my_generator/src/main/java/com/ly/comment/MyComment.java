@@ -102,7 +102,6 @@ public class MyComment implements CommentGenerator {
                 break;
         }
         sb.append(" -->");
-        System.out.println(sb.toString());
         xmlElement.addElement(new TextElement(sb.toString()));
     }
 

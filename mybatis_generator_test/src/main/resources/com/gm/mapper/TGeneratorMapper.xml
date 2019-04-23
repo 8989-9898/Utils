@@ -3,7 +3,7 @@
 <mapper namespace="com.gm.mapper.TGeneratorMapper">
   <resultMap id="BaseResultMap" type="com.gm.entry.TGenerator">
     <!-- 自定义map集合 BaseResultMap
-		类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
+		类型为: com.gm.entry.TGenerator  Date :  2019/04/23 -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="message" jdbcType="VARCHAR" property="message" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
@@ -11,13 +11,13 @@
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!-- 对应mapper接口的方法为 deleteByPrimaryKey
-		参数类型为: java.lang.Integer  Date :  2019/04/22 -->
+		参数类型为: java.lang.Integer  Date :  2019/04/23 -->
     delete from t_generator
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.gm.entry.TGenerator">
     <!-- 对应mapper接口的方法为 insert
-		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
+		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/23 -->
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -28,7 +28,7 @@
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.gm.entry.TGenerator">
     <!-- 对应mapper接口的方法为 updateByPrimaryKey
-		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
+		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/23 -->
     update t_generator
     set message = #{message,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
@@ -38,69 +38,14 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!-- 对应mapper接口的方法为 selectByPrimaryKey
 		返回类型为: BaseResultMap
-		参数类型为: java.lang.Integer  Date :  2019/04/22 -->
+		参数类型为: java.lang.Integer  Date :  2019/04/23 -->
     select id, message, create_date, update_date
     from t_generator
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     <!-- 对应mapper接口的方法为 selectAll
-		返回类型为: BaseResultMap  Date :  2019/04/22 -->
-    select id, message, create_date, update_date
-    from t_generator
-  </select>
-  <resultMap id="BaseResultMap" type="com.gm.entry.TGenerator">
-    <!-- 自定义map集合 BaseResultMap
-		类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="message" jdbcType="VARCHAR" property="message" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    <!-- 对应mapper接口的方法为 deleteByPrimaryKey
-		参数类型为: java.lang.Integer  Date :  2019/04/22 -->
-    delete from t_generator
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.gm.entry.TGenerator">
-    <!-- 对应mapper接口的方法为 insert
-		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into t_generator (message, create_date, update_date
-      )
-    values (#{message,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.gm.entry.TGenerator">
-    <!-- 对应mapper接口的方法为 updateByPrimaryKey
-		参数类型为: com.gm.entry.TGenerator  Date :  2019/04/22 -->
-    update t_generator
-    set message = #{message,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=TIMESTAMP},
-      update_date = #{updateDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!-- 对应mapper接口的方法为 selectByPrimaryKey
-		返回类型为: BaseResultMap
-		参数类型为: java.lang.Integer  Date :  2019/04/22 -->
-    select id, message, create_date, update_date
-    from t_generator
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAll" resultMap="BaseResultMap">
-    <!-- 对应mapper接口的方法为 selectAll
-		返回类型为: BaseResultMap  Date :  2019/04/22 -->
-    select id, message, create_date, update_date
-    from t_generator
-  </select>
-
-  <!--测试是否会覆盖-->
-  <!--经过测试不会覆盖-->
-  <select id="tset" resultType="com.gm.entry.TGenerator">
+		返回类型为: BaseResultMap  Date :  2019/04/23 -->
     select id, message, create_date, update_date
     from t_generator
   </select>

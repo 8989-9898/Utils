@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * @author: lin
- * @Date: 2019/04/22
+ * @Date: 2019/04/23
  * @Table: t_generator
  * @Description: 测试mybatis-generator的自动生成类，xml，接口的表
  * @Warn 该类不能删除 
@@ -121,7 +121,7 @@ public class TGenerator implements Serializable {
     }
 
     /**
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: java.lang.String
      */

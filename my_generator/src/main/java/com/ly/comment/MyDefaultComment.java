@@ -93,7 +93,6 @@ public class MyDefaultComment extends DefaultCommentGenerator {
                 break;
         }
         sb.append(" -->");
-        System.out.println(sb.toString());
         xmlElement.addElement(new TextElement(sb.toString()));
     }
 

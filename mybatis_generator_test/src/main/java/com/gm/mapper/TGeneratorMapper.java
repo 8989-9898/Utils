@@ -6,7 +6,7 @@ import java.util.List;
 public interface TGeneratorMapper {
     /**
      * @Param: java.lang.Integer id
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: int
      */
@@ -14,7 +14,7 @@ public interface TGeneratorMapper {
 
     /**
      * @Param: com.gm.entry.TGenerator record
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: int
      */
@@ -22,14 +22,14 @@ public interface TGeneratorMapper {
 
     /**
      * @Param: java.lang.Integer id
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: com.gm.entry.TGenerator
      */
     TGenerator selectByPrimaryKey(Integer id);
 
     /**
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: java.util.List<com.gm.entry.TGenerator>
      */
@@ -37,7 +37,7 @@ public interface TGeneratorMapper {
 
     /**
      * @Param: com.gm.entry.TGenerator record
-     * @Date: 2019/04/22
+     * @Date: 2019/04/23
      * @Description: 
      * @Return: int
      */
